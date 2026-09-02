@@ -3,428 +3,540 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Pest Control Pro - Islip NY</title>
+    <title>Quick Pest Control Pro - Professional Pest & Cockroach Exterminator Islip NY</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        customGreen: '#e8f5e9',
-                        customLightGreen: '#f1f8f2',
-                        accentRed: '#d32f2f',
-                        hoverRed: '#b71c1c'
+                        brandGreen: '#f0fdf4',
+                        brandLightGreen: '#dcfce7',
+                        brandAccentGreen: '#22c55e',
+                        brandRed: '#ef4444',
+                        brandDarkRed: '#dc2626',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Apple-style smooth glassmorphism and dynamic background motion */
+        /* Apple-style smooth scrolling and motion base */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f0fdf4;
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+        /* Glassmorphism Effect */
         .glass-card {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(220, 252, 231, 0.6);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .glass-card:hover {
             transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 20px 40px -15px rgba(211, 47, 47, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(34, 197, 94, 0.15);
         }
         .glass-nav {
-            background: rgba(241, 248, 242, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(240, 253, 244, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(220, 252, 231, 0.8);
         }
-
-        /* Continuous Background Motion Animation */
-        @keyframes bgMotion {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+        /* Apple-style advanced floating background animation spheres */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+            33% { transform: translateY(-40px) translateX(25px) scale(1.08); }
+            66% { transform: translateY(20px) translateX(-25px) scale(0.95); }
         }
-
-        body {
-            background: linear-gradient(135deg, #e8f5e9, #d0f0d4, #f1f8f2, #ffffff);
-            background-size: 300% 300%;
-            animation: bgMotion 18s ease infinite;
-            color: #1f2937;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            overflow-x: hidden;
+        .animate-float-1 {
+            animation: floatSlow 10s ease-in-out infinite;
         }
-
-        /* Smooth page transition fading */
-        .page-content {
-            animation: fadeInPage 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .animate-float-2 {
+            animation: floatSlow 14s ease-in-out infinite reverse;
         }
-
-        @keyframes fadeInPage {
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Interactive pulse motion for elements */
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .animate-subtle-pulse {
+            animation: subtlePulse 4s ease-in-out infinite;
+        }
+        /* Page transition & motion reveal */
+        .page-section {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            visibility: hidden;
+        }
+        .page-section.active-page {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+            position: relative;
+            visibility: visible;
         }
     </style>
 </head>
-<body class="selection:bg-accentRed selection:text-white">
+<body class="bg-brandGreen text-gray-800 relative selection:bg-brandRed selection:text-white">
 
-    <nav class="glass-nav fixed top-0 left-0 right-0 z-50 border-b border-green-200/60 shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-2 cursor-pointer transform hover:scale-105 transition-transform" onclick="showPage('home')">
-                <span class="text-2xl font-black tracking-tight text-gray-900">Quick<span class="text-accentRed">Pest</span></span>
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-[-1]">
+        <div class="absolute top-[-10%] left-[-10%] w-[550px] h-[550px] rounded-full bg-emerald-200/50 blur-[130px] animate-float-1"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[650px] h-[650px] rounded-full bg-red-100/50 blur-[150px] animate-float-2"></div>
+    </div>
+
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" onclick="switchTab('home')" class="flex items-center gap-2 text-xl font-extrabold tracking-tight text-gray-900 group">
+                <div class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center shadow-md shadow-brandRed/30 transition-transform duration-500 group-hover:scale-125 group-hover:rotate-6">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <span class="transition-transform duration-300 group-hover:translate-x-1">Quick Pest Control <span class="text-brandRed">Pro</span></span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-btn text-brandRed font-semibold transition-all duration-300 hover:scale-105">Home</button>
+                <button onclick="switchTab('services')" id="nav-services" class="nav-btn text-gray-600 hover:text-brandRed transition-all duration-300 hover:scale-105">Services</button>
+                <button onclick="switchTab('about')" id="nav-about" class="nav-btn text-gray-600 hover:text-brandRed transition-all duration-300 hover:scale-105">About</button>
+                <button onclick="switchTab('blog')" id="nav-blog" class="nav-btn text-gray-600 hover:text-brandRed transition-all duration-300 hover:scale-105">Blog</button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="nav-btn text-gray-600 hover:text-brandRed transition-all duration-300 hover:scale-105">Contact</button>
             </div>
-            <div class="hidden md:flex space-x-8 font-medium text-gray-700">
-                <button onclick="showPage('home')" class="hover:text-accentRed transition-colors duration-200">Home</button>
-                <button onclick="showPage('services')" class="hover:text-accentRed transition-colors duration-200">Services</button>
-                <button onclick="showPage('about')" class="hover:text-accentRed transition-colors duration-200">About</button>
-                <button onclick="showPage('blog')" class="hover:text-accentRed transition-colors duration-200">Blog</button>
-                <button onclick="showPage('contact')" class="hover:text-accentRed transition-colors duration-200">Contact</button>
+
+            <div class="flex items-center gap-4">
+                <button onclick="switchTab('contact')" class="hidden sm:inline-flex items-center gap-2 bg-brandRed hover:bg-brandDarkRed text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-lg shadow-brandRed/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 active:scale-95">
+                    <i class="fa-solid fa-paper-plane text-xs animate-bounce"></i> Get Quote
+                </button>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700 text-2xl focus:outline-none transition-transform duration-300 hover:rotate-90">
+                    <i class="fa-solid fa-bars" id="menu-icon"></i>
+                </button>
             </div>
-            <div>
-                <button onclick="showPage('contact')" class="bg-accentRed text-white px-5 py-2.5 rounded-full font-semibold shadow-lg hover:bg-hoverRed transition-all duration-300 transform hover:scale-105 active:scale-95">Get Free Quote</button>
-            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-emerald-100 px-6 py-4 space-y-3 transition-all duration-300">
+            <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left font-medium py-2 text-brandRed transition-transform hover:translate-x-2">Home</button>
+            <button onclick="switchTab('services'); toggleMobileMenu();" class="block w-full text-left font-medium py-2 text-gray-700 transition-transform hover:translate-x-2">Services</button>
+            <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full text-left font-medium py-2 text-gray-700 transition-transform hover:translate-x-2">About</button>
+            <button onclick="switchTab('blog'); toggleMobileMenu();" class="block w-full text-left font-medium py-2 text-gray-700 transition-transform hover:translate-x-2">Blog</button>
+            <button onclick="switchTab('contact'); toggleMobileMenu();" class="block w-full text-left font-medium py-2 text-gray-700 transition-transform hover:translate-x-2">Contact</button>
         </div>
     </nav>
 
-    <main class="pt-24 min-h-screen">
+    <main class="pt-24 min-h-screen relative overflow-hidden">
 
-        <div id="page-home" class="page-content space-y-24 py-12">
-            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right" data-aos-duration="1000" data-aos-easing="cubic-bezier(0.16, 1, 0.3, 1)" class="space-y-6">
-                    <span class="inline-block bg-green-100/80 backdrop-blur-md text-accentRed px-4 py-1.5 rounded-full text-sm font-bold tracking-wide shadow-sm">Premier Long Island Specialists</span>
-                    <h1 class="text-5xl sm:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
-                        Reliable & Safe <span class="text-accentRed">Pest Control</span> Solutions
+        <section id="page-home" class="page-section active-page max-w-7xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-12">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brandLightGreen text-emerald-800 text-xs font-bold tracking-wide uppercase shadow-sm transition-transform duration-300 hover:scale-105">
+                        <span class="w-2 h-2 rounded-full bg-brandRed animate-pulse"></span> Certified Long Island Specialists
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-gray-900 leading-[1.1]">
+                        Reliable & Fast <span class="text-brandRed inline-block transition-transform duration-300 hover:scale-105">Pest Solutions</span> for Your Home
                     </h1>
-                    <p class="text-lg text-gray-600 leading-relaxed">
-                        Protect your home and family with Long Island's most trusted extermination experts. Fast response, eco-friendly approaches, and guaranteed results.
+                    <p class="text-lg text-gray-600 font-normal leading-relaxed">
+                        Protect your living space from unwanted invaders with advanced, eco-friendly treatments. From sudden infestations to preventive barriers, we deliver pristine results tailored to your lifestyle.
                     </p>
-                    <div class="flex space-x-4 pt-2">
-                        <button onclick="showPage('contact')" class="bg-accentRed text-white px-8 py-3.5 rounded-full font-bold shadow-xl hover:bg-hoverRed transition-all duration-300 transform hover:scale-105 active:scale-95">Book Inspection</button>
-                        <button onclick="showPage('services')" class="glass-card text-gray-800 px-8 py-3.5 rounded-full font-bold hover:bg-white/90 transition-all duration-300">Our Services</button>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="switchTab('contact')" class="bg-brandRed hover:bg-brandDarkRed text-white px-8 py-4 rounded-full font-bold shadow-xl shadow-brandRed/30 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 active:scale-95">
+                            Book Inspection Now
+                        </button>
+                        <button onclick="switchTab('blog')" class="glass-card hover:bg-white text-gray-800 px-8 py-4 rounded-full font-bold shadow-sm transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 active:scale-95">
+                            Read Expert Blog
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-emerald-200/60">
+                        <div class="transition-transform duration-300 hover:scale-105">
+                            <h4 class="text-2xl font-black text-gray-900">100%</h4>
+                            <p class="text-xs text-gray-500 font-medium">Safe Solutions</p>
+                        </div>
+                        <div class="transition-transform duration-300 hover:scale-105">
+                            <h4 class="text-2xl font-black text-gray-900">24/7</h4>
+                            <p class="text-xs text-gray-500 font-medium">Emergency Help</p>
+                        </div>
+                        <div class="transition-transform duration-300 hover:scale-105">
+                            <h4 class="text-2xl font-black text-gray-900">5 Star</h4>
+                            <p class="text-xs text-gray-500 font-medium">Customer Rated</p>
+                        </div>
                     </div>
                 </div>
-                <div data-aos="fade-left" data-aos-duration="1000" data-aos-easing="cubic-bezier(0.16, 1, 0.3, 1)" class="glass-card p-8 rounded-3xl shadow-2xl relative">
-                    <div class="absolute -top-4 -right-4 bg-accentRed text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-lg animate-pulse">100% Guaranteed</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Quick Emergency Dispatch</h3>
-                    <p class="text-gray-600 mb-6">Experiencing an unexpected pest infestation? Our technicians are on standby across the region to resolve your issues instantly.</p>
-                    <ul class="space-y-3 text-gray-700 font-medium">
-                        <li class="flex items-center transform hover:translate-x-1 transition-transform"><span class="w-2.5 h-2.5 bg-accentRed rounded-full mr-3 shadow-sm"></span> Same-day appointments available</li>
-                        <li class="flex items-center transform hover:translate-x-1 transition-transform"><span class="w-2.5 h-2.5 bg-accentRed rounded-full mr-3 shadow-sm"></span> Licensed & certified professional experts</li>
-                        <li class="flex items-center transform hover:translate-x-1 transition-transform"><span class="w-2.5 h-2.5 bg-accentRed rounded-full mr-3 shadow-sm"></span> Child and pet-friendly treatments</li>
+                <div class="relative">
+                    <div class="glass-card p-8 rounded-3xl shadow-2xl relative z-10 space-y-6 animate-subtle-pulse">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Live Status: Active Protection</span>
+                            <span class="w-3 h-3 rounded-full bg-brandAccentGreen animate-ping"></span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-2xl bg-white/80 border border-emerald-100 flex items-center gap-4 shadow-sm transition-all duration-300 hover:translate-x-2">
+                                <div class="w-12 h-12 rounded-xl bg-red-100 text-brandRed flex items-center justify-center text-xl transition-transform duration-300 hover:rotate-12">
+                                    <i class="fa-solid fa-bug"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-gray-900">Targeted Elimination</h5>
+                                    <p class="text-xs text-gray-500">Advanced eradication for tough bugs.</p>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-white/80 border border-emerald-100 flex items-center gap-4 shadow-sm transition-all duration-300 hover:translate-x-2">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl transition-transform duration-300 hover:rotate-12">
+                                    <i class="fa-solid fa-shield-heart"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-gray-900">Family & Pet Safe</h5>
+                                    <p class="text-xs text-gray-500">Non-toxic chemical profiles available.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-gradient-to-r from-brandRed to-brandDarkRed text-white flex items-center justify-between shadow-lg">
+                            <div>
+                                <h6 class="font-bold text-sm">Need Fast Assistance?</h6>
+                                <p class="text-xs text-red-100">Send your query directly to our team.</p>
+                            </div>
+                            <button onclick="switchTab('contact')" class="bg-white text-brandRed px-4 py-2 rounded-xl font-bold text-xs shadow-md transition-transform duration-300 hover:scale-110 active:scale-95">Enquire</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-services" class="page-section max-w-7xl mx-auto px-6 py-12">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <span class="px-4 py-1.5 rounded-full bg-brandLightGreen text-emerald-800 text-xs font-bold uppercase inline-block transition-transform duration-300 hover:scale-105">Our Expertise</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900">Comprehensive Pest Management Services</h2>
+                <p class="text-gray-600 text-sm sm:text-base">We provide specialized treatments designed to completely eradicate pests while ensuring your indoor environment remains healthy.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl space-y-4 shadow-xl group">
+                    <div class="w-14 h-14 rounded-2xl bg-red-100 text-brandRed flex items-center justify-center text-2xl transition-all duration-500 group-hover:scale-125 group-hover:rotate-12">
+                        <i class="fa-solid fa-spider"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 transition-colors group-hover:text-brandRed">Cockroach Extermination</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Comprehensive elimination of German, American, and Oriental roaches using cutting-edge baiting and barrier methods.
+                    </p>
+                    <button onclick="switchTab('contact')" class="text-brandRed font-bold text-sm inline-flex items-center gap-2 pt-2 transition-transform duration-300 group-hover:translate-x-2">
+                        Book Service <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+                <div class="glass-card p-8 rounded-3xl space-y-4 shadow-xl group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl transition-all duration-500 group-hover:scale-125 group-hover:rotate-12">
+                        <i class="fa-solid fa-house-chimney-crack"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 transition-colors group-hover:text-emerald-700">Rodent & Mouse Control</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Thorough sealing of entry points, humane trapping, and complete disinfection to keep mice and rats away for good.
+                    </p>
+                    <button onclick="switchTab('contact')" class="text-brandRed font-bold text-sm inline-flex items-center gap-2 pt-2 transition-transform duration-300 group-hover:translate-x-2">
+                        Book Service <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+                <div class="glass-card p-8 rounded-3xl space-y-4 shadow-xl group">
+                    <div class="w-14 h-14 rounded-2xl bg-red-100 text-brandRed flex items-center justify-center text-2xl transition-all duration-500 group-hover:scale-125 group-hover:rotate-12">
+                        <i class="fa-solid fa-shield-virus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 transition-colors group-hover:text-brandRed">General Preventive Barrier</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Seasonal quarterly spraying and perimeter defense to block ants, spiders, beetles, and other seasonal pests before they enter.
+                    </p>
+                    <button onclick="switchTab('contact')" class="text-brandRed font-bold text-sm inline-flex items-center gap-2 pt-2 transition-transform duration-300 group-hover:translate-x-2">
+                        Book Service <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-about" class="page-section max-w-7xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="px-4 py-1.5 rounded-full bg-brandLightGreen text-emerald-800 text-xs font-bold uppercase inline-block transition-transform duration-300 hover:scale-105">About Our Company</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900">Dedicated to Pest-Free Living Spaces</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Quick Pest Control Pro was founded with a singular mission: to provide homeowners with rapid, reliable, and completely stress-free pest management solutions. We understand how disruptive an unexpected infestation can be to your peace of mind and family comfort.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Our certified technicians utilize state-of-the-art diagnostic tools and environmentally responsible products. We pride ourselves on transparent communication, thorough inspections, and long-lasting results that give you absolute peace of mind.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div class="glass-card p-5 rounded-2xl border border-emerald-100 transition-transform duration-300 hover:scale-105">
+                            <h4 class="text-3xl font-black text-brandRed">10+</h4>
+                            <p class="text-xs text-gray-600 font-medium mt-1">Years of Combined Professional Experience</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-2xl border border-emerald-100 transition-transform duration-300 hover:scale-105">
+                            <h4 class="text-3xl font-black text-emerald-700">5,000+</h4>
+                            <p class="text-xs text-gray-600 font-medium mt-1">Successful Residential Treatments Completed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl shadow-xl space-y-6">
+                    <h3 class="text-2xl font-bold text-gray-900">Our Core Principles</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/70 border border-emerald-100 transition-all duration-300 hover:translate-x-2">
+                            <div class="w-10 h-10 rounded-xl bg-red-100 text-brandRed flex items-center justify-center shrink-0 transition-transform duration-300 hover:scale-110">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-sm">Customer First Approach</h5>
+                                <p class="text-xs text-gray-500 mt-0.5">Every treatment plan is customized based on your specific layout and severity level.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/70 border border-emerald-100 transition-all duration-300 hover:translate-x-2">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 transition-transform duration-300 hover:scale-110">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-sm">Eco-Conscious Protection</h5>
+                                <p class="text-xs text-gray-500 mt-0.5">We prioritize botanical and targeted low-toxicity formulas that protect loved ones.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/70 border border-emerald-100 transition-all duration-300 hover:translate-x-2">
+                            <div class="w-10 h-10 rounded-xl bg-red-100 text-brandRed flex items-center justify-center shrink-0 transition-transform duration-300 hover:scale-110">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-sm">Rapid Response Time</h5>
+                                <p class="text-xs text-gray-500 mt-0.5">Quick dispatch to assess and neutralize critical infestations instantly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-blog" class="page-section max-w-4xl mx-auto px-6 py-12">
+            <article class="glass-card p-8 sm:p-12 rounded-3xl shadow-2xl space-y-8">
+                
+                <div class="space-y-4 border-b border-emerald-200/80 pb-8">
+                    <div class="flex items-center gap-3 text-xs font-semibold text-emerald-800">
+                        <span class="px-3 py-1 rounded-full bg-brandLightGreen transition-transform duration-300 hover:scale-105">Content Guide</span>
+                        <span>•</span>
+                        <span>Published 2026</span>
+                        <span>•</span>
+                        <span>12+ Min Read</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl font-black text-gray-900 tracking-tight leading-tight">
+                        The Ultimate Guide to Eliminating Cockroaches and Keeping Your Home Pest-Free
+                    </h1>
+                    <p class="text-gray-600 text-base sm:text-lg leading-relaxed">
+                        Discover expert strategies, identification tips, and advanced eradication protocols to permanently secure your living space.
+                    </p>
+                </div>
+
+                <div class="space-y-8 text-gray-700 text-base leading-relaxed">
+                    
+                    <p>
+                        Dealing with household pests is one of the most frustrating challenges a homeowner can face. Among all domestic intruders, cockroaches rank as one of the most resilient, unsettling, and difficult-to-manage species. Whether you spot a single intruder scuttling across your kitchen floor late at night or discover signs of a full-scale colony hidden inside dark crevices, swift action is crucial. In this comprehensive guide, we will explore everything you need to know about identifying cockroach infestations, understanding their behavior, implementing safe elimination strategies, and why hiring a professional <a href="https://quickpestcontrolpro.com/pest-control-islip-ny" class="text-brandRed font-semibold underline decoration-brandRed/40 hover:decoration-brandRed transition-colors hover:text-brandDarkRed">cockroach exterminator islip</a> remains your most effective defense.
+                    </p>
+
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 pt-4">
+                        Understanding Common Cockroach Species in Residential Areas
+                    </h2>
+                    <p>
+                        Before attempting any eradication method, it is vital to know your enemy. Not all cockroaches behave the same way or hide in identical locations. In residential neighborhoods across New York, a few primary species tend to cause the most trouble:
+                    </p>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 pt-2">
+                        1. The German Cockroach
+                    </h3>
+                    <p>
+                        Recognizable by their light brown or tan coloration with two distinct dark parallel stripes on their pronotum, German cockroaches are the most common indoor species. They thrive in warm, humid environments like kitchens and bathrooms. Because they reproduce at an alarming rate, a minor issue can quickly escalate into a severe infestation if not addressed immediately by a qualified <a href="https://quickpestcontrolpro.com/pest-control-islip-ny" class="text-brandRed font-semibold underline decoration-brandRed/40 hover:decoration-brandRed transition-colors hover:text-brandDarkRed">cockroach exterminator islip</a>.
+                    </p>
+
+                    <h3 class="text-xl font-bold text-gray-900 pt-2">
+                        2. The American Cockroach
+                    </h3>
+                    <p>
+                        As the largest of the common house-infesting roaches, American cockroaches feature a reddish-brown appearance with a yellowish margin on the body shield. Often referred to as "palmetto bugs," they prefer dark, damp locations such as basements, crawl spaces, and utility rooms. While they typically live outdoors, they frequently wander indoors in search of moisture and decaying organic matter.
+                    </p>
+
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 pt-4">
+                        Health Risks Associated with Cockroach Infestations
+                    </h2>
+                    <p>
+                        Beyond the sheer psychological distress of sharing your living quarters with crawling insects, cockroaches pose genuine health hazards to your household. They carry numerous pathogens on their outer bodies and legs, which they transfer onto food preparation surfaces, utensils, and pantry items.
+                    </p>
+                    <p>
+                        Furthermore, cockroach saliva, shed skins, and fecal droppings contain potent allergens that can trigger asthma attacks—especially in children—and cause chronic skin rashes or allergic rhinitis. Ensuring a completely sanitized, bug-free home is therefore not just a matter of comfort, but a fundamental requirement for protecting your family's physical well-being.
+                    </p>
+
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 pt-4">
+                        Why DIY Solutions Often Fall Short
+                    </h2>
+                    <p>
+                        When homeowners first notice pests, their immediate reaction is often to purchase over-the-counter sprays, foggers, or sticky traps from local supermarkets. While these retail products may kill visible insects on contact, they rarely target the root of the colony.
+                    </p>
+                    <p>
+                        Cockroaches are master survivors capable of developing resistance to common chemical insecticides. Moreover, females carry egg cases (oothecae) that are remarkably resistant to surface sprays. If even a few eggs survive, the population rebounds within weeks. True, long-lasting eradication requires specialized baiting matrices, insect growth regulators (IGRs), and professional-grade application techniques that only a certified <a href="https://quickpestcontrolpro.com/pest-control-islip-ny" class="text-brandRed font-semibold underline decoration-brandRed/40 hover:decoration-brandRed transition-colors hover:text-brandDarkRed">cockroach exterminator islip</a> can expertly execute.
+                    </p>
+
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 pt-4">
+                        Customer Testimonial: Real Experience from Long Island
+                    </h2>
+                    <p>
+                        Hearing about pest control results from real homeowners provides invaluable insight into what professional service feels like. Here is a verified testimonial from a satisfied resident living right in Long Island:
+                    </p>
+
+                    <blockquote class="my-6 p-6 sm:p-8 rounded-3xl bg-emerald-50/90 border-l-4 border-brandRed shadow-inner space-y-4 transition-transform duration-300 hover:scale-[1.01]">
+                        <div class="flex items-center gap-1 text-amber-500 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="italic text-gray-800 font-medium">
+                            "We had been struggling with a stubborn German roach problem in our kitchen for months, trying every store-bought trap imaginable with zero success. Desperate for a permanent fix, we called local experts. The technician arrived right on schedule, conducted a thorough inspection of our cabinets and appliances, and applied targeted baiting treatments. Within days, the activity dropped to zero, and our home has remained completely pest-free ever since. Exceptional service and absolute peace of mind!"
+                        </p>
+                        <footer class="text-xs font-bold text-gray-900 uppercase tracking-wider">
+                            — Sarah M., Long Island Homeowner
+                        </footer>
+                    </blockquote>
+
+                    <p>
+                        Testimonials like Sarah’s highlight the immense difference between guesswork and professional intervention. When dealing with resilient pests, partnering with an experienced <a href="https://quickpestcontrolpro.com/pest-control-islip-ny" class="text-brandRed font-semibold underline decoration-brandRed/40 hover:decoration-brandRed transition-colors hover:text-brandDarkRed">cockroach exterminator islip</a> saves you time, money, and unnecessary frustration.
+                    </p>
+
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 pt-4">
+                        Preventive Measures to Keep Pests Away Long-Term
+                    </h2>
+                    <p>
+                        Once your home has been professionally treated, taking proactive steps to maintain a pristine environment is essential. Here are actionable habits you can implement immediately:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li><strong>Seal All Food Sources:</strong> Store pantry goods in airtight glass or plastic containers rather than cardboard boxes.</li>
+                        <li><strong>Maintain Kitchen Cleanliness:</strong> Wipe down countertops, sweep crumbs daily, and never leave dirty dishes in the sink overnight.</li>
+                        <li><strong>Manage Moisture:</strong> Fix leaky plumbing pipes under sinks and ensure bathrooms are properly ventilated to remove excess humidity.</li>
+                        <li><strong>Block Entry Points:</strong> Use silicone caulk and weatherstripping to seal gaps around windows, doors, and baseboard cracks.</li>
                     </ul>
-                </div>
-            </section>
 
-            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="800">
-                    <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Why Homeowners Choose Us</h2>
-                    <p class="text-gray-600">We combine cutting-edge technology with safe applications to keep your living spaces thoroughly pest-free.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="glass-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                        <div class="w-12 h-12 bg-red-100 text-accentRed rounded-xl flex items-center justify-center font-bold text-xl mb-6 shadow-inner">01</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Thorough Inspection</h4>
-                        <p class="text-gray-600">We trace pests back to their nesting origins to completely eradicate the root of the problem.</p>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 pt-6">
+                        Frequently Asked Questions (F&Q)
+                    </h2>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div class="p-5 rounded-2xl bg-white/70 border border-emerald-100 transition-all duration-300 hover:translate-x-1">
+                            <h4 class="font-bold text-gray-900">Q: How quickly can I expect results after professional treatment?</h4>
+                            <p class="text-sm text-gray-600 mt-1">A: Most homeowners notice a dramatic reduction in pest activity within 24 to 48 hours as the targeted baiting and professional formulations take full effect.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white/70 border border-emerald-100 transition-all duration-300 hover:translate-x-1">
+                            <h4 class="font-bold text-gray-900">Q: Are the extermination products safe for household pets and children?</h4>
+                            <p class="text-sm text-gray-600 mt-1">A: Yes! Modern pest control protocols prioritize targeted application methods and low-toxicity botanical solutions that are completely safe once dry.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-white/70 border border-emerald-100 transition-all duration-300 hover:translate-x-1">
+                            <h4 class="font-bold text-gray-900">Q: How often should I schedule preventive pest inspections?</h4>
+                            <p class="text-sm text-gray-600 mt-1">A: We recommend scheduling quarterly or semi-annual maintenance checks to ensure protective barriers remain active year-round.</p>
+                        </div>
                     </div>
-                    <div class="glass-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-                        <div class="w-12 h-12 bg-red-100 text-accentRed rounded-xl flex items-center justify-center font-bold text-xl mb-6 shadow-inner">02</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Targeted Eradication</h4>
-                        <p class="text-gray-600">Advanced formulas custom-tailored to handle regional structural challenges and resilient insects.</p>
-                    </div>
-                    <div class="glass-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
-                        <div class="w-12 h-12 bg-red-100 text-accentRed rounded-xl flex items-center justify-center font-bold text-xl mb-6 shadow-inner">03</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Long-Term Prevention</h4>
-                        <p class="text-gray-600">Continuous protection packages to make sure unwanted bugs never return to your household.</p>
-                    </div>
+
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 pt-6">
+                        CONKLUTION
+                    </h2>
+                    <p>
+                        Keeping your home pristine, healthy, and entirely free of invasive pests requires vigilance, knowledge, and expert assistance. While DIY methods may offer temporary relief, enduring peace of mind comes from comprehensive, professional treatment plans. By maintaining clean living habits and partnering with a trusted <a href="https://quickpestcontrolpro.com/pest-control-islip-ny" class="text-brandRed font-semibold underline decoration-brandRed/40 hover:decoration-brandRed transition-colors hover:text-brandDarkRed">cockroach exterminator islip</a>, you can ensure your living environment remains safe and comfortable for years to come.
+                    </p>
+
                 </div>
-            </section>
-        </div>
+            </article>
+        </section>
 
-        <div id="page-services" class="page-content hidden space-y-16 py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto" data-aos="fade-down" data-aos-duration="800">
-                <span class="text-accentRed font-bold tracking-widest text-sm uppercase">Our Expertise</span>
-                <h1 class="text-4xl font-extrabold text-gray-900 mt-2 mb-4">Comprehensive Pest Management Services</h1>
-                <p class="text-gray-600 text-lg">Specialized treatments tailored for residential and commercial spaces across Long Island.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass-card p-8 rounded-2xl shadow-md" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="700">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Cockroach Control</h3>
-                    <p class="text-gray-600 mb-6">Intensive specialized elimination plans targeting German, American, and Oriental roaches hidden in cracks and plumbing lines.</p>
-                    <button onclick="showPage('contact')" class="text-accentRed font-bold hover:text-hoverRed inline-flex items-center group">Book Service <span class="transform group-hover:translate-x-1 transition-transform ml-1">&rarr;</span></button>
-                </div>
-                <div class="glass-card p-8 rounded-2xl shadow-md" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="700">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Rodent Elimination</h3>
-                    <p class="text-gray-600 mb-6">Complete property sealing, tracking, and safe trapping strategies to safely evict mice and rats.</p>
-                    <button onclick="showPage('contact')" class="text-accentRed font-bold hover:text-hoverRed inline-flex items-center group">Book Service <span class="transform group-hover:translate-x-1 transition-transform ml-1">&rarr;</span></button>
-                </div>
-                <div class="glass-card p-8 rounded-2xl shadow-md" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="700">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Bed Bug Remediation</h3>
-                    <p class="text-gray-600 mb-6">Heat treatment and precision chemical applications designed to eliminate bed bugs in all developmental stages.</p>
-                    <button onclick="showPage('contact')" class="text-accentRed font-bold hover:text-hoverRed inline-flex items-center group">Book Service <span class="transform group-hover:translate-x-1 transition-transform ml-1">&rarr;</span></button>
-                </div>
-                <div class="glass-card p-8 rounded-2xl shadow-md" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="700">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Ant & Termite Care</h3>
-                    <p class="text-gray-600 mb-6">Protect structural woodwork and stop destructive carpenter ants and subterranean termites from ruining your investment.</p>
-                    <button onclick="showPage('contact')" class="text-accentRed font-bold hover:text-hoverRed inline-flex items-center group">Book Service <span class="transform group-hover:translate-x-1 transition-transform ml-1">&rarr;</span></button>
-                </div>
-                <div class="glass-card p-8 rounded-2xl shadow-md" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="700">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Wildlife Removal</h3>
-                    <p class="text-gray-600 mb-6">Humane trapping and relocation services for raccoons, squirrels, and small wildlife intruders safely.</p>
-                    <button onclick="showPage('contact')" class="text-accentRed font-bold hover:text-hoverRed inline-flex items-center group">Book Service <span class="transform group-hover:translate-x-1 transition-transform ml-1">&rarr;</span></button>
-                </div>
-                <div class="glass-card p-8 rounded-2xl shadow-md" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="700">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">General Maintenance</h3>
-                    <p class="text-gray-600 mb-6">Quarterly defensive perimeter defense sprays to ensure seasonal bugs never cross your threshold.</p>
-                    <button onclick="showPage('contact')" class="text-accentRed font-bold hover:text-hoverRed inline-flex items-center group">Book Service <span class="transform group-hover:translate-x-1 transition-transform ml-1">&rarr;</span></button>
-                </div>
-            </div>
-        </div>
-
-        <div id="page-about" class="page-content hidden space-y-16 py-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="800">
-                <span class="text-accentRed font-bold tracking-widest text-sm uppercase">About Our Firm</span>
-                <h1 class="text-4xl font-extrabold text-gray-900 mt-2 mb-4">Dedicated to a Pest-Free Community</h1>
-                <p class="text-gray-600 text-lg">Delivering professional excellence, integrity, and absolute customer satisfaction across Long Island.</p>
-            </div>
-            <div class="glass-card p-8 sm:p-12 rounded-3xl shadow-lg space-y-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-                <h3 class="text-2xl font-bold text-gray-900">Our Professional Journey</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Founded with a clear vision to redefine property protection standards, Quick Pest Control Pro has grown to become a benchmark for reliability in the region. We understand that discovering pests in your home or place of business can cause immediate stress, anxiety, and sanitary health concerns. That is why our team operates with urgency, discretion, and technical proficiency.
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    Every technician on our crew undergoes extensive training regimens, staying up-to-date with the latest environmentally conscious protocols and modern extermination techniques. We believe in transparency, treating every household with the utmost respect while executing robust strategies that protect structural integrity and well-being.
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-green-200 text-center">
-                    <div class="transform hover:scale-105 transition-transform">
-                        <div class="text-3xl font-extrabold text-accentRed">10+</div>
-                        <div class="text-sm text-gray-600 mt-1 font-medium">Years Experience</div>
-                    </div>
-                    <div class="transform hover:scale-105 transition-transform">
-                        <div class="text-3xl font-extrabold text-accentRed">5,000+</div>
-                        <div class="text-sm text-gray-600 mt-1 font-medium">Properties Secured</div>
-                    </div>
-                    <div class="transform hover:scale-105 transition-transform">
-                        <div class="text-3xl font-extrabold text-accentRed">100%</div>
-                        <div class="text-sm text-gray-600 mt-1 font-medium">Satisfaction Focus</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="page-blog" class="page-content hidden py-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            
-            <div class="text-center space-y-4" data-aos="fade-down" data-aos-duration="800">
-                <span class="bg-green-100/80 backdrop-blur-md text-accentRed px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">Expert Resource Guide</span>
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
-                    The Ultimate Long Island Homeowner's Guide to Eliminating Stubborn Pest Infestations Permanently
-                </h1>
-                <p class="text-gray-600 text-sm font-medium">Published by Editorial Staff | Long Island, NY</p>
-            </div>
-
-            <div class="glass-card p-6 sm:p-12 rounded-3xl shadow-xl space-y-8 text-gray-700 leading-relaxed" data-aos="fade-up" data-aos-duration="900">
-                
-                <p class="text-lg font-medium text-gray-800">
-                    Living in Long Island brings distinct seasonal variations, cozy coastal climates, and beautiful neighborhoods. However, these very environmental conditions also create ideal natural habitats for uninvited household invaders. From damp spring thaw periods to humid summer evenings, pests constantly seek refuge, moisture, and food inside residential and commercial structures. When household management fails to keep pace with these resilient organisms, property owners face stressful infestations that require professional intervention.
-                </p>
-
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-4 border-t border-green-200">
-                    Understanding the Root Causes of Regional Infestations
-                </h2>
-                <p>
-                    Pests do not invade properties at random; they follow basic survival instincts. Food crumbs, open garbage containers, unsealed dry goods, and minor plumbing leaks provide all the sustenance a colony needs to multiply rapidly. In many Long Island properties, older foundational architecture, crawl spaces, and utility pipe penetrations offer hidden pathways for bugs to slip past human detection. 
-                </p>
-                <p>
-                    Common household pests include ants seeking sugary residues, rodents looking for warm winter nesting spots, and stubborn crawling insects that thrive in dark, humid basements and kitchen pantries. Without proper barrier maintenance, minor bug sightings can quickly escalate into full-scale biological outbreaks that threaten domestic hygiene and peace of mind.
-                </p>
-
-                <h3 class="text-xl font-bold text-gray-800 pt-2">
-                    Why DIY Sprays Often Fail Long-Term
-                </h3>
-                <p>
-                    When homeowners first notice unwanted insects, the initial reaction is often a quick trip to the local supermarket for aerosol bug sprays or generic traps. While these over-the-counter retail products may kill individual bugs visible on the surface, they rarely address the core nesting site hidden deep within wall voids or beneath major kitchen appliances. Consequently, survivors reproduce, populations bounce back stronger, and homeowners waste valuable time and money repeating temporary fixes. Effective management demands specialized formulations, precise application methodologies, and professional diagnostic expertise.
-                </p>
-
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-4 border-t border-green-200">
-                    Deep Dive Into Cockroach Dynamics and Risks
-                </h2>
-                <p>
-                    Among all household intruders, few evoke as much immediate frustration and health anxiety as cockroaches. These hardy insects are notorious carriers of harmful pathogens, bacterial agents, and indoor allergens that can aggravate respiratory conditions such as asthma, particularly in young children and elderly residents. Because they are primarily nocturnal, property owners may harbor hundreds of roaches out of sight before ever spotting a single specimen during daylight hours.
-                </p>
-                <p>
-                    When dealing with resilient German or American roach species, standard consumer measures are completely ineffective due to rapid reproductive cycles and chemical resistance. This is precisely why hiring an experienced <a href="https://quickpestcontrolpro.com/pest-control-islip-ny" class="text-accentRed font-bold underline hover:text-hoverRed transition-colors">cockroach exterminator islip</a> is essential for achieving complete eradication. Professional exterminators utilize targeted baiting systems, insect growth regulators (IGRs), and specialized residual treatments that break the reproductive lifecycle at every stage.
-                </p>
-
-                <h3 class="text-xl font-bold text-gray-800 pt-2">
-                    Health Hazards Tied to Roaches
-                </h3>
-                <p>
-                    Roaches travel through unsanitary environments such as sewer lines, trash disposal sites, and damp basements before crawling across kitchen counters, food preparation surfaces, and tableware. As they move, they deposit shed skins, saliva, and fecal matter laden with disease-causing microorganisms. Eliminating them promptly is not merely a matter of comfort—it is a vital health requirement for safeguarding household hygiene and food safety standards.
-                </p>
-
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-4 border-t border-green-200">
-                    Web2.0 Content Guide: Customer Testimonial
-                </h2>
-                <p>
-                    To truly understand the value of professional intervention, examining real-world homeowner experiences provides profound clarity. Local community feedback highlights how professional services transform stressful household conditions into safe, sanitized living environments.
-                </p>
-                
-                <blockquote class="border-l-4 border-accentRed pl-4 italic text-gray-700 bg-green-50/80 backdrop-blur-sm p-4 rounded-r-xl my-4 shadow-sm">
-                    "As a long-time homeowner living in Long Island, I never expected to deal with a sudden kitchen pest outbreak. After trying various store-bought sprays to no avail, I reached out to a professional <a href="https://quickpestcontrolpro.com/pest-control-islip-ny" class="text-accentRed font-bold underline hover:text-hoverRed transition-colors">cockroach exterminator islip</a>. Their team arrived promptly, conducted a thorough inspection, and executed a treatment plan that completely resolved the issue within days. My kitchen is finally safe, clean, and entirely pest-free!"
-                    <div class="not-italic text-sm font-bold text-gray-900 mt-2">— Sarah M., Resident from Long Island, NY</div>
-                </blockquote>
-
-                <p>
-                    Testimonials like Sarah’s underscore the importance of trusting certified local specialists who understand regional pest behaviors and structural vulnerabilities. Professional care eliminates guesswork, saving homeowners from prolonged frustration.
-                </p>
-
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-4 border-t border-green-200">
-                    Proactive Prevention Strategies for Long-Term Property Health
-                </h2>
-                <p>
-                    Eradicating an existing infestation is only half the battle; maintaining a pristine, protected environment requires ongoing preventive discipline. Implementing structural and sanitary best practices ensures your property remains unappealing to incoming insects and rodents throughout every changing season.
-                </p>
-
-                <h3 class="text-xl font-bold text-gray-800 pt-2">
-                    Essential Maintenance Checklists
-                </h3>
-                <ul class="list-disc pl-6 space-y-2">
-                    <li><strong>Seal Entry Points:</strong> Inspect exterior walls, window frames, and foundation cracks, sealing any gaps using high-grade silicone caulk or stainless-steel mesh.</li>
-                    <li><strong>Manage Moisture:</strong> Repair leaky plumbing fixtures promptly, clear clogged gutters, and use dehumidifiers in damp basements or crawl spaces.</li>
-                    <li><strong>Sanitize Food Storage:</strong> Store pantry goods in airtight glass or heavy-duty plastic containers and wipe down kitchen counters nightly.</li>
-                    <li><strong>Proper Waste Disposal:</strong> Keep garbage cans tightly sealed with secure lids and dispose of organic waste regularly away from structural foundations.</li>
-                </ul>
-
-                <p class="pt-4">
-                    By combining vigilant household maintenance habits with scheduled professional inspections from a qualified <a href="https://quickpestcontrolpro.com/pest-control-islip-ny" class="text-accentRed font-bold underline hover:text-hoverRed transition-colors">cockroach exterminator islip</a>, homeowners can maintain absolute peace of mind and protect their property value indefinitely.
-                </p>
-
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-6 border-t border-green-200">
-                    Conclusion
-                </h2>
-                <p>
-                    Pest infestations are an stressful challenge for any property owner, but they do not have to be a permanent burden. Understanding why bugs invade, recognizing the limitations of DIY retail products, and partnering with experienced local professionals makes all the difference. Whether you are dealing with resilient crawling bugs or seeking reliable seasonal property protection, taking prompt action ensures a clean, healthy, and safe domestic environment for everyone under your roof.
-                </p>
-
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 pt-6 border-t border-green-200">
-                    Frequently Asked Questions (FAQ)
-                </h2>
-
-                <div class="space-y-4 pt-2">
-                    <div class="bg-white/80 backdrop-blur-md p-5 rounded-xl border border-green-100 shadow-sm transition-all hover:shadow-md">
-                        <h4 class="font-bold text-gray-900 text-lg mb-1">1. How quickly can an exterminator resolve a cockroach issue?</h4>
-                        <p class="text-gray-600">Most residential treatments show dramatic reductions within 24 to 48 hours as targeted baits and residual barriers take full effect across active nesting zones.</p>
-                    </div>
-                    <div class="bg-white/80 backdrop-blur-md p-5 rounded-xl border border-green-100 shadow-sm transition-all hover:shadow-md">
-                        <h4 class="font-bold text-gray-900 text-lg mb-1">2. Are the professional pest treatments safe for household pets and children?</h4>
-                        <p class="text-gray-600">Yes. Modern eco-friendly pest management utilizes targeted, low-toxicity applications designed to maximize safety for human residents and pets once dry.</p>
-                    </div>
-                    <div class="bg-white/80 backdrop-blur-md p-5 rounded-xl border border-green-100 shadow-sm transition-all hover:shadow-md">
-                        <h4 class="font-bold text-gray-900 text-lg mb-1">3. Why do roaches keep returning to my kitchen?</h4>
-                        <p class="text-gray-600">Kitchens offer a steady supply of moisture, microscopic food crumbs, and warmth. Without sealing structural entry points and professional barrier spraying, new colonies will re-invade.</p>
-                    </div>
-                    <div class="bg-white/80 backdrop-blur-md p-5 rounded-xl border border-green-100 shadow-sm transition-all hover:shadow-md">
-                        <h4 class="font-bold text-gray-900 text-lg mb-1">4. Should I schedule routine preventive maintenance sprays?</h4>
-                        <p class="text-gray-600">Absolutely. Quarterly or biannual perimeter treatments are the most effective way to stop regional pests before they establish nests inside your home.</p>
-                    </div>
+        <section id="page-contact" class="page-section max-w-2xl mx-auto px-6 py-12">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl shadow-2xl space-y-6">
+                <div class="text-center space-y-2">
+                    <span class="px-4 py-1.5 rounded-full bg-brandLightGreen text-emerald-800 text-xs font-bold uppercase inline-block transition-transform duration-300 hover:scale-105">Get In Touch</span>
+                    <h2 class="text-3xl font-black text-gray-900">Send Us a Message</h2>
+                    <p class="text-gray-600 text-sm">Fill out the form below with your details and inquiry. Our team will review and respond promptly.</p>
                 </div>
 
-            </div>
-        </div>
-
-        <div id="page-contact" class="page-content hidden py-12 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="text-center" data-aos="fade-down" data-aos-duration="800">
-                <span class="text-accentRed font-bold tracking-widest text-sm uppercase">Get In Touch</span>
-                <h1 class="text-4xl font-extrabold text-gray-900 mt-2 mb-4">Request Your Free Consultation</h1>
-                <p class="text-gray-600">Fill out the quick secure form below with your inquiry details. Our team will review your message and respond promptly.</p>
-            </div>
-
-            <div class="glass-card p-8 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden" data-aos="fade-up" data-aos-duration="900">
-                
-                <div id="form-success-message" class="hidden absolute inset-0 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center p-8 text-center z-20 space-y-4 transition-all">
-                    <div class="w-16 h-16 bg-green-100 text-accentRed rounded-full flex items-center justify-center text-3xl font-bold animate-bounce">✓</div>
-                    <h3 class="text-2xl font-bold text-gray-900">Message Sent Successfully!</h3>
-                    <p class="text-gray-600">Thank you for providing your details. A specialist will review your request and get in touch with you shortly.</p>
-                    <button onclick="resetContactForm()" class="bg-accentRed text-white px-6 py-2.5 rounded-full font-bold shadow-md hover:bg-hoverRed transition-all transform hover:scale-105">Send Another Message</button>
-                </div>
-
-                <form id="secure-contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                <form id="customer-inquiry-form" onsubmit="handleFormSubmit(event)" class="space-y-4 pt-4">
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Your Full Name</label>
-                        <input type="text" id="c-name" required placeholder="e.g. John Doe" class="w-full px-4 py-3 rounded-xl bg-white/70 border border-green-200 focus:outline-none focus:ring-2 focus:ring-accentRed text-gray-800 placeholder-gray-400 transition-all">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Your Name</label>
+                        <input type="text" id="visitor-name" required placeholder="Enter your full name" class="w-full px-4 py-3 rounded-xl bg-white/90 border border-emerald-100 focus:border-brandRed focus:ring-2 focus:ring-brandRed/20 outline-none text-sm transition-all duration-300 focus:scale-[1.01]">
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
-                        <input type="email" id="c-email" required placeholder="e.g. john@example.com" class="w-full px-4 py-3 rounded-xl bg-white/70 border border-green-200 focus:outline-none focus:ring-2 focus:ring-accentRed text-gray-800 placeholder-gray-400 transition-all">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Email Address</label>
+                        <input type="email" id="visitor-email" required placeholder="Enter your email address" class="w-full px-4 py-3 rounded-xl bg-white/90 border border-emerald-100 focus:border-brandRed focus:ring-2 focus:ring-brandRed/20 outline-none text-sm transition-all duration-300 focus:scale-[1.01]">
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Phone Number</label>
-                        <input type="tel" id="c-phone" required placeholder="e.g. (555) 000-0000" class="w-full px-4 py-3 rounded-xl bg-white/70 border border-green-200 focus:outline-none focus:ring-2 focus:ring-accentRed text-gray-800 placeholder-gray-400 transition-all">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" id="visitor-phone" required placeholder="Enter your phone number" class="w-full px-4 py-3 rounded-xl bg-white/90 border border-emerald-100 focus:border-brandRed focus:ring-2 focus:ring-brandRed/20 outline-none text-sm transition-all duration-300 focus:scale-[1.01]">
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Your Message / Service Request</label>
-                        <textarea id="c-message" rows="4" required placeholder="Describe your pest issue or request details here..." class="w-full px-4 py-3 rounded-xl bg-white/70 border border-green-200 focus:outline-none focus:ring-2 focus:ring-accentRed text-gray-800 placeholder-gray-400 transition-all"></textarea>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Your Message / Inquiry</label>
+                        <textarea id="visitor-message" rows="4" required placeholder="Describe your pest concern or service request..." class="w-full px-4 py-3 rounded-xl bg-white/90 border border-emerald-100 focus:border-brandRed focus:ring-2 focus:ring-brandRed/20 outline-none text-sm transition-all duration-300 focus:scale-[1.01] resize-none"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-accentRed text-white py-3.5 rounded-xl font-bold shadow-lg hover:bg-hoverRed transition-all transform hover:scale-[1.01] active:scale-95">Submit Request</button>
+                    <button type="submit" class="w-full bg-brandRed hover:bg-brandDarkRed text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-brandRed/30 transition-all duration-300 transform hover:scale-[1.02] active:scale-95">
+                        Submit Details
+                    </button>
+                    <div id="form-success-msg" class="hidden p-4 rounded-xl bg-emerald-100 text-emerald-800 text-center text-sm font-semibold transition-all duration-500 transform animate-pulse">
+                        Thank you! Your details have been successfully submitted. We will contact you shortly.
+                    </div>
                 </form>
             </div>
-        </div>
+        </section>
 
     </main>
 
-    <footer class="mt-20 border-t border-green-200/60 bg-white/40 backdrop-blur-md py-8 text-center text-sm text-gray-600">
-        <div class="max-w-7xl mx-auto px-4 space-y-2">
-            <p>&copy; 2026 Quick Pest Control Pro. All rights reserved.</p>
-            <p class="text-xs text-gray-500">Professional Pest Management & Eradication Services</p>
-        </div>
+    <footer class="max-w-7xl mx-auto px-6 py-12 border-t border-emerald-200/60 mt-12 text-center text-xs text-gray-500">
+        <p>&copy; 2026 Quick Pest Control Pro. All rights reserved. Designed with Apple-inspired light motion & glass aesthetics.</p>
     </footer>
 
     <script>
-        // Initialize AOS Motion Library
-        AOS.init({
-            once: true,
-            offset: 40,
-            duration: 800,
-            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-        });
-
-        // Single Page Navigation Function with smooth scrolling and motion refresh
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page-content');
+        function switchTab(tabId) {
+            // Hide all pages with scale/fade out
+            const pages = document.querySelectorAll('.page-section');
             pages.forEach(page => {
-                page.classList.add('hidden');
+                page.classList.remove('active-page');
             });
-            const targetPage = document.getElementById('page-' + pageId);
+
+            // Show target page with smooth transition
+            const targetPage = document.getElementById('page-' + tabId);
             if (targetPage) {
-                targetPage.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                setTimeout(() => {
-                    AOS.refresh();
-                }, 150);
+                targetPage.classList.add('active-page');
             }
+
+            // Update Nav active styling
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => {
+                btn.classList.remove('text-brandRed', 'font-semibold');
+                btn.classList.add('text-gray-600');
+            });
+
+            const activeNavBtn = document.getElementById('nav-' + tabId);
+            if (activeNavBtn) {
+                activeNavBtn.classList.remove('text-gray-600');
+                activeNavBtn.classList.add('text-brandRed', 'font-semibold');
+            }
+
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Handle Contact Form Submission cleanly
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
         function handleFormSubmit(event) {
             event.preventDefault();
-            document.getElementById('form-success-message').classList.remove('hidden');
-        }
-
-        function resetContactForm() {
-            document.getElementById('secure-contact-form').reset();
-            document.getElementById('form-success-message').classList.add('hidden');
+            const successBox = document.getElementById('form-success-msg');
+            successBox.classList.remove('hidden');
+            document.getElementById('customer-inquiry-form').reset();
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 6000);
         }
     </script>
 </body>
